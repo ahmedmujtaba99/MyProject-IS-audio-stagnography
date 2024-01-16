@@ -113,7 +113,7 @@ class WaveGenGUI(tk.Tk):
     def __init__(self):
         # Initialize the main window
         tk.Tk.__init__(self)
-        self.title("Audio Stagnography")
+        self.title("Audio Stagnography IS Project")
         self.geometry("800x600")
 
         # Create a notebook for different tabs
@@ -148,7 +148,7 @@ class WaveGenGUI(tk.Tk):
         encode_filename_var = tk.StringVar(self.encode_tab)
 
         # Labels and entry widgets for Encode Tab
-        tk.Label(self.encode_tab, text="Encode Message", font=('Helvetica', 16)).pack(pady=5)
+        tk.Label(self.encode_tab, text="Embadding Process", font=('Helvetica', 16)).pack(pady=5)
         tk.Label(self.encode_tab, text="Secret Message:", font=('Helvetica', 12)).pack(pady=5)
         encode_entry = tk.Entry(self.encode_tab, textvariable=encode_message_var, font=('Helvetica', 10), width=50)
         encode_entry.pack(pady=5)
@@ -191,7 +191,7 @@ class WaveGenGUI(tk.Tk):
         decode_filename_var = tk.StringVar(self.decode_tab)
 
         # Labels and entry widgets for Decode Tab
-        tk.Label(self.decode_tab, text="Decode Message", font=('Helvetica', 16)).pack(pady=5)
+        tk.Label(self.decode_tab, text="Extrating Process", font=('Helvetica', 16)).pack(pady=5)
         tk.Label(self.decode_tab, text="Filename:", font=('Helvetica', 12)).pack(pady=5)
         filename_entry = tk.Entry(self.decode_tab, textvariable=decode_filename_var, font=('Helvetica', 10), width=50)
         filename_entry.pack(pady=5)
