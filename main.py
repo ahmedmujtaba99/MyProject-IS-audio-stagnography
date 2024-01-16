@@ -104,7 +104,6 @@
 
 
 
-
 from audioGenerator import WaveGen
 import tkinter as tk
 import tkinter.font as font
@@ -112,18 +111,19 @@ from tkinter import ttk, filedialog, messagebox, simpledialog
 
 class WaveGenGUI(tk.Tk):
     def __init__(self):
+        # Initialize the main window
         tk.Tk.__init__(self)
         self.title("Audio Stagnography")
         self.geometry("800x600")
 
+        # Create a notebook for different tabs
         self.notebook = ttk.Notebook(self)
         self.notebook.pack(expand=True, fill="both")
 
-        button_font = font.Font(family='Helvitica', size=20)
-
         # Set the common style for TButton
+        button_font = font.Font(family='Helvitica', size=20)
         self.style = ttk.Style()
-        self.style.configure("TButton", foreground="#ffffff", background="#45b592", bd=0, font=button_font, height=2, width=10)
+        self.style.configure("TButton", foreground="#ffffff", background="#45b592", bd=0, font=button_font, height=3, width=15)
 
         # Remove hover effect for the active state
         self.style.map("TButton", background=[("active", "#45b592")])
@@ -132,22 +132,24 @@ class WaveGenGUI(tk.Tk):
         self.encode_tab = ttk.Frame(self.notebook)
         self.notebook.add(self.encode_tab, text="Encode")
 
+        # Setup Encode Tab
         self.setup_encode_tab()
 
         # Create Decode Tab
         self.decode_tab = ttk.Frame(self.notebook)
         self.notebook.add(self.decode_tab, text="Decode")
 
+        # Setup Decode Tab
         self.setup_decode_tab()
 
     def setup_encode_tab(self):
+        # Initialize variables for entry widgets
         encode_message_var = tk.StringVar(self.encode_tab)
         encode_filename_var = tk.StringVar(self.encode_tab)
 
+        # Labels and entry widgets for Encode Tab
         tk.Label(self.encode_tab, text="Encode Message", font=('Helvetica', 16)).pack(pady=5)
         tk.Label(self.encode_tab, text="Secret Message:", font=('Helvetica', 12)).pack(pady=5)
-        
-        # Add a placeholder text
         encode_entry = tk.Entry(self.encode_tab, textvariable=encode_message_var, font=('Helvetica', 10), width=50)
         encode_entry.pack(pady=5)
 
@@ -155,11 +157,11 @@ class WaveGenGUI(tk.Tk):
         filename_entry = tk.Entry(self.encode_tab, textvariable=encode_filename_var, font=('Helvetica', 10), width=50)
         filename_entry.pack(pady=5)
 
-        # Add a password field
         tk.Label(self.encode_tab, text="Password:", font=('Helvetica', 12)).pack(pady=5)
-        password_entry = tk.Entry(self.encode_tab, show="*", font=('Helvetica', 10), width=20)
+        password_entry = tk.Entry(self.encode_tab, show="*", font=('Helvetica', 10), width=50)
         password_entry.pack(pady=5)
 
+        # Button to trigger encoding
         encode_button = ttk.Button(self.encode_tab, text="Encode", command=lambda: self.encode(
             encode_message_var.get(), encode_filename_var.get(), password_entry.get()), style="TButton")
         encode_button.pack(pady=5)
@@ -169,6 +171,7 @@ class WaveGenGUI(tk.Tk):
         self.encode_status_label.pack(pady=5)
 
     def encode(self, secret_message, filename, password):
+        # Function to handle encoding process
         if not password:
             messagebox.showerror("Error", "Please enter a password.")
             return
@@ -184,18 +187,20 @@ class WaveGenGUI(tk.Tk):
             messagebox.showerror("Encode Failed", "Encoding failed. Please check the message length.")
 
     def setup_decode_tab(self):
+        # Initialize variable for entry widget
         decode_filename_var = tk.StringVar(self.decode_tab)
 
+        # Labels and entry widgets for Decode Tab
         tk.Label(self.decode_tab, text="Decode Message", font=('Helvetica', 16)).pack(pady=5)
         tk.Label(self.decode_tab, text="Filename:", font=('Helvetica', 12)).pack(pady=5)
         filename_entry = tk.Entry(self.decode_tab, textvariable=decode_filename_var, font=('Helvetica', 10), width=50)
         filename_entry.pack(pady=5)
 
-        # Add a password field
         tk.Label(self.decode_tab, text="Password:", font=('Helvetica', 12)).pack(pady=5)
-        password_entry = tk.Entry(self.decode_tab, show="*", font=('Helvetica', 10), width=20)
+        password_entry = tk.Entry(self.decode_tab, show="*", font=('Helvetica', 10), width=50)
         password_entry.pack(pady=5)
 
+        # Button to trigger decoding
         decode_button = ttk.Button(self.decode_tab, text="Decode", command=lambda: self.decode(
             decode_filename_var.get(), password_entry.get()), style="TButton")
         decode_button.pack(pady=5)
@@ -205,6 +210,7 @@ class WaveGenGUI(tk.Tk):
         self.decode_decoded_label.pack(pady=5)
 
     def decode(self, filename, password):
+        # Function to handle decoding process
         if not password:
             messagebox.showerror("Error", "Please enter a password.")
             return
