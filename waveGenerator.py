@@ -1,10 +1,8 @@
 
-# GUI
-
 import sys
 import struct
 import numpy as np
-import tkinter as tk  # Add this line
+
 
 class WaveGen:
 
@@ -160,50 +158,4 @@ class WaveGen:
             print(f"\033[31m{e}\033[37]")
             return None
 
-# Define WaveGenGUI and create an instance of WaveGen
-class WaveGenGUI(tk.Tk):
-    def __init__(self):
-        tk.Tk.__init__(self)
-        self.title("WaveGen GUI")
-        self.geometry("400x300")
 
-        self.frequency_var = tk.StringVar(self, value="440")
-        self.channels_var = tk.StringVar(self, value="2")
-        self.message_var = tk.StringVar(self)
-        self.filename_var = tk.StringVar(self)
-
-        tk.Label(self, text="Frequency:").pack()
-        tk.Entry(self, textvariable=self.frequency_var).pack()
-
-        tk.Label(self, text="Channels:").pack()
-        tk.Entry(self, textvariable=self.channels_var).pack()
-
-        tk.Label(self, text="Secret Message:").pack()
-        tk.Entry(self, textvariable=self.message_var).pack()
-
-        tk.Label(self, text="Filename:").pack()
-        tk.Entry(self, textvariable=self.filename_var).pack()
-
-        tk.Button(self, text="Encode", command=self.encode).pack()
-        tk.Button(self, text="Decode", command=self.decode).pack()
-
-    def encode(self):
-        frequency = int(self.frequency_var.get())
-        channels = int(self.channels_var.get())
-        secret_message = self.message_var.get()
-        filename = self.filename_var.get()
-
-        wg.encode(secret_message, filename)
-
-    def decode(self):
-        filename = tk.filedialog.askopenfilename(title="Select a WAV file", filetypes=[("WAV files", "*.wav")])
-        if filename:
-            secret_message = wg.decode(filename)
-            self.decoded_label.config(text=secret_message)
-
-# Create an instance of WaveGen
-wg = WaveGen()
-
-if __name__ == "__main__":
-    app = WaveGenGUI()
-    app.mainloop()

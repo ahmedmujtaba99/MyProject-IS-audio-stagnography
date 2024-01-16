@@ -1,6 +1,6 @@
-
 from waveGenerator import WaveGen
 import tkinter as tk
+import tkinter.font as font
 from tkinter import ttk, filedialog, messagebox
 
 class WaveGenGUI(tk.Tk):
@@ -11,6 +11,15 @@ class WaveGenGUI(tk.Tk):
 
         self.notebook = ttk.Notebook(self)
         self.notebook.pack(expand=True, fill="both")
+
+        button_font = font.Font(family='Helvitica', size=20)
+
+        # Set the common style for TButton
+        self.style = ttk.Style()
+        self.style.configure("TButton", foreground="#ffffff", background="#45b592", bd=0, font=button_font, height=2, width=10)
+
+        # Remove hover effect for the active state
+        self.style.map("TButton", background=[("active", "#45b592")])
 
         # Create Encode Tab
         self.encode_tab = ttk.Frame(self.notebook)
@@ -27,6 +36,7 @@ class WaveGenGUI(tk.Tk):
     def setup_encode_tab(self):
         encode_message_var = tk.StringVar(self.encode_tab)
         encode_filename_var = tk.StringVar(self.encode_tab)
+
         tk.Label(self.encode_tab, text="Encode Message", font=('Helvetica', 16)).pack(pady=5)
         tk.Label(self.encode_tab, text="Secret Message:", font=('Helvetica', 12)).pack(pady=5)
         
@@ -49,22 +59,21 @@ class WaveGenGUI(tk.Tk):
         self.encode_status_label = tk.Label(self.encode_tab, text="", font=('Helvetica', 10))
         self.encode_status_label.pack(pady=5)
 
-        self.style = ttk.Style()
-        self.style.configure("TButton", foreground="white", background="#ADD8E6", padding=(5, 5), width=15)
-
     def encode(self, secret_message, filename):
         wg = WaveGen()
         success = wg.encode(secret_message, filename)
 
         if success:
             self.encode_status_label.config(text="Message encoded successfully!")
+            messagebox.showinfo("Encode Success", "Message encoded successfully!")
         else:
             self.encode_status_label.config(text="Encoding failed. Please check the message length.")
+            messagebox.showerror("Encode Failed", "Encoding failed. Please check the message length.")
 
     def setup_decode_tab(self):
         decode_filename_var = tk.StringVar(self.decode_tab)
 
-        tk.Label(self.encode_tab, text="Decode Message", font=('Helvetica', 16)).pack(pady=5)
+        tk.Label(self.decode_tab, text="Decode Message", font=('Helvetica', 16)).pack(pady=5)
         tk.Label(self.decode_tab, text="Filename:", font=('Helvetica', 12)).pack(pady=5)
         # Increase length and add placeholder
         filename_entry = tk.Entry(self.decode_tab, textvariable=decode_filename_var, font=('Helvetica', 10), width=50)
@@ -84,12 +93,10 @@ class WaveGenGUI(tk.Tk):
         secret_message = wg.decode(filename)
         if secret_message:
             self.decode_decoded_label.config(text=secret_message)
+            messagebox.showinfo("Decode Success", "Message decoded successfully!")
         else:
             messagebox.showerror("Decode Failed", "Message not found or invalid WAV file.")
 
 if __name__ == "__main__":
     app = WaveGenGUI()
     app.mainloop()
-
-
-
