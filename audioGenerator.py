@@ -115,7 +115,8 @@ class WaveGen:
 
     def WriteItDown(self, filename):
         # Write the bitArray to a WAV file
-        with open(filename + '.wav', 'wb') as f:
+        # with open(filename + '.wav', 'wb') as f:
+        with open(filename + '.mp3', 'wb') as f:
             f.write(self.bitArray)
 
     def encode(self, secretMessage, filename, password):
@@ -155,9 +156,10 @@ class WaveGen:
 
     def decode(self, filename, password):
         # Decode the secretMessage from an audio file
-        if filename[-4:] != '.wav':
-            filename = filename + '.wav'
-
+        # if filename[-4:] != '.wav':
+        #     filename = filename + '.wav'
+        if filename[-4:] != '.mp3':
+            filename = filename + '.mp3'
         index = 44
         bitsLine, description = '', ''
 

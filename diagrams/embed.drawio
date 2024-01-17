@@ -1,0 +1,46 @@
+<mxfile host="app.diagrams.net" modified="2024-01-17T17:06:18.008Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="yTBlrsmLXUhrDtdR1uNY" version="22.1.21" type="device">
+  <diagram name="Page-1" id="iz_eZb2evGi3saNnXQmL">
+    <mxGraphModel dx="864" dy="425" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="f1qUnWLiqSSH__Vkl6kN-11" value="" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;" parent="1" vertex="1">
+          <mxGeometry x="60" y="10" width="690" height="320" as="geometry" />
+        </mxCell>
+        <mxCell id="f1qUnWLiqSSH__Vkl6kN-1" value="&lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;Audio Input&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#00040a;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="90" y="50" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="f1qUnWLiqSSH__Vkl6kN-2" value="&lt;b&gt;&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 14px;&quot;&gt;Separate Header &amp;amp; Data&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#010204;shadow=1;" parent="1" vertex="1">
+          <mxGeometry x="250" y="210" width="150" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="f1qUnWLiqSSH__Vkl6kN-3" value="&lt;b&gt;&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 14px;&quot;&gt;Replace LSB of Data&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;shadow=1;fillColor=#dae8fc;strokeColor=#000000;" parent="1" vertex="1">
+          <mxGeometry x="430" y="40" width="160" height="95" as="geometry" />
+        </mxCell>
+        <mxCell id="f1qUnWLiqSSH__Vkl6kN-4" value="&lt;b&gt;&lt;font face=&quot;Helvetica&quot; style=&quot;font-size: 14px;&quot;&gt;Stego Audio&lt;/font&gt;&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#000000;shadow=1;glass=0;" parent="1" vertex="1">
+          <mxGeometry x="560" y="210" width="140" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="f1qUnWLiqSSH__Vkl6kN-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fillColor=#dae8fc;strokeColor=#000000;" parent="1" source="f1qUnWLiqSSH__Vkl6kN-1" target="f1qUnWLiqSSH__Vkl6kN-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="250" as="sourcePoint" />
+            <mxPoint x="450" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f1qUnWLiqSSH__Vkl6kN-6" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeWidth=2;fillColor=#dae8fc;strokeColor=#000000;" parent="1" source="f1qUnWLiqSSH__Vkl6kN-2" target="f1qUnWLiqSSH__Vkl6kN-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="250" as="sourcePoint" />
+            <mxPoint x="450" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f1qUnWLiqSSH__Vkl6kN-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeWidth=2;fillColor=#dae8fc;strokeColor=#000000;" parent="1" source="f1qUnWLiqSSH__Vkl6kN-3" target="f1qUnWLiqSSH__Vkl6kN-4" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="400" y="250" as="sourcePoint" />
+            <mxPoint x="450" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="f1qUnWLiqSSH__Vkl6kN-12" value="Embedding Process" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;dashed=1;fillColor=default;strokeColor=default;rounded=1;" parent="1" vertex="1">
+          <mxGeometry x="60" y="10" width="130" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

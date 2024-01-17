@@ -18,7 +18,7 @@ class WaveGenGUI(tk.Tk):
         # Set the common style for TButton
         button_font = font.Font(family='Helvitica', size=20)
         self.style = ttk.Style()
-        self.style.configure("TButton", foreground="#ffffff", background="#45b592", bd=0, font=button_font, height=3, width=15)
+        self.style.configure("TButton", foreground="#45b592", background="#45b592", bd=0, font=button_font, height=3, width=15)
 
         # Remove hover effect for the active state
         self.style.map("TButton", background=[("active", "#45b592")])
