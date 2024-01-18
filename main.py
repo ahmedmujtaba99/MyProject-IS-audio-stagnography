@@ -12,7 +12,7 @@ class WaveGenGUI(tk.Tk):
         # Initialize the main window
         tk.Tk.__init__(self)
         # Set the title and initial geometry of the window
-        self.title("Audio Stagnography IS Project")
+        self.title("Audio Steganography IS Project")
         self.geometry("800x600")
 
         # Create a notebook for different tabs
@@ -46,7 +46,7 @@ class WaveGenGUI(tk.Tk):
         encode_filename_var = tk.StringVar(self.encode_tab)
 
         # Labels and entry widgets for Encode Tab
-        tk.Label(self.encode_tab, text="Embadding Process", font=('Helvetica', 16)).pack(pady=5)
+        tk.Label(self.encode_tab, text="Embedding Process", font=('Helvetica', 16)).pack(pady=5)
         tk.Label(self.encode_tab, text="Secret Message:", font=('Helvetica', 12)).pack(pady=5)
         encode_entry = tk.Entry(self.encode_tab, textvariable=encode_message_var, font=('Helvetica', 10), width=50)
         encode_entry.pack(pady=5)
